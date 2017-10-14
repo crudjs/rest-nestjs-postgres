@@ -1,19 +1,23 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { Observable } from 'rxjs/Observable';
 
 import { CreatePostDto } from './create-post.dto';
+import { PostInterface } from './post.interface';
+import { PostsService } from './posts.service';
 
 @Controller('posts')
 export class PostsController {
 
+  constructor(private readonly postsService: PostsService) { }
+
   @Get()
-  findAll(): Observable<any[]> {
-    return Observable.of([]);
+  findAll(): Observable<PostInterface[]> {
+    return Observable.of(this.postsService.findAll());
   }
 
   @Post()
   async create( @Body() createPostDto: CreatePostDto) {
-    console.log(createPostDto);
+    this.postsService.create(createPostDto);
     // return createPostDto;
   }
 }
