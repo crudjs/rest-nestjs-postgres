@@ -1,0 +1,39 @@
+{
+	"name": "rest-nestjs-postgres",
+	"version": "1.0.0",
+	"description": "CrudJS implemented as a REST API, using Nest and Postgres",
+	"scripts": {
+		"dev": "nodemon",
+		"prestart:prod": "tsc",
+		"start": "node dist/server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/crudjs/rest-nestjs-postgres.git"
+	},
+	"keywords": [],
+	"author": "David Guijarro <guijarro.dav@gmail.com>",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/crudjs/rest-nestjs-postgres/issues"
+	},
+	"homepage": "https://github.com/crudjs/rest-nestjs-postgres#readme",
+	"dependencies": {
+		"@nestjs/common": "^4.0.0",
+		"@nestjs/core": "^4.0.0",
+		"@nestjs/microservices": "^4.0.0",
+		"@nestjs/testing": "^4.0.0",
+		"@nestjs/websockets": "^4.0.0",
+		"body-parser": "^1.18.2",
+		"reflect-metadata": "^0.1.10",
+		"rxjs": "^5.4.0",
+		"typescript": "^2.5.2"
+	},
+	"devDependencies": {
+		"@types/express": "^4.0.37",
+		"@types/node": "^8.0.28",
+		"nodemon": "^1.12.1",
+		"ts-node": "^3.3.0",
+		"tslint": "^5.7.0"
+	}
+}
