@@ -8,8 +8,8 @@ async function bootstrap() {
   const app = await NestFactory.create(ApplicationModule);
   app.use(bodyParser.json());
   app.useGlobalPipes(new ValidationPipe());
-
-  await app.listen(3000);
+  const port = parseInt(process.env.PORT, 10) || 3000;
+  await app.listen(port);
 }
 
 bootstrap();
