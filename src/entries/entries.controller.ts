@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
+import { v4 } from 'uuid';
 
 import { CreateEntryDto } from './create-entry.dto';
 import { EntriesService } from './entries.service';
@@ -16,7 +17,11 @@ export class EntriesController {
 
   @Post()
   async create( @Body() createPostDto: CreateEntryDto) {
-    this.postsService.create(createPostDto);
-    // return createPostDto;
+    const newEntry = Object.assign({}, createPostDto, {
+      id: v4(),
+      created_at: new Date(),
+      cheers: 0,
+    });
+    this.postsService.create(newEntry);
   }
 }
