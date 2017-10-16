@@ -1,3 +1,3 @@
-export class CreatePostDto {
+export class CreateEntryDto {
     readonly title: string;
 }
