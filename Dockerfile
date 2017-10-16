@@ -7,7 +7,8 @@ WORKDIR /home/node/app
 COPY . /home/node/app
 RUN npm install --production
 
-CMD [ "npm", "start" ]
+# CMD [ "npm", "start" ]
+CMD ["node", "dist/server.js"]
 EXPOSE 3000
 
 # Install development packages if NODE_ENV is set to "development"
