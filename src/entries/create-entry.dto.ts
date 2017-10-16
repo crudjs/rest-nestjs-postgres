@@ -1,7 +1,9 @@
+import { IsArray, IsString } from 'class-validator';
+
 export class CreateEntryDto {
-  readonly title: string;
-  readonly body: string;
-  readonly authorId: string;
-  readonly categoryId: string;
-  readonly tags: string[];
+  @IsString() readonly title: string;
+  @IsString() readonly body: string;
+  @IsString() readonly authorId: string;
+  @IsString() readonly categoryId: string;
+  @IsArray() @IsString({ each: true }) readonly tags: string[];
 }
