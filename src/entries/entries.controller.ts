@@ -22,6 +22,6 @@ export class EntriesController {
       created_at: new Date(),
       cheers: 0,
     });
-    this.postsService.create(newEntry);
+    await this.postsService.create(newEntry);
   }
 }

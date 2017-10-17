@@ -9,6 +9,10 @@ services:
         - NODE_ENV=development
     environment:
       - PORT=3000
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PW=crudjs      
     ports:
       - 3000:3000
     depends_on:
@@ -24,7 +28,8 @@ services:
     image: postgres:alpine
     restart: always
     environment:
-        POSTGRES_PASSWORD: crudjs
+      - DB_USER=postgres
+      - DB_PASS=crudjs
 
   adminer:
     image: adminer
