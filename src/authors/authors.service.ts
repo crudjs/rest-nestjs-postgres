@@ -7,6 +7,14 @@ import { Author } from './author.interface';
 export class AuthorsService {
   constructor( @Inject('AuthorRepositoryToken') private readonly authorRepository: Repository<Author>) { }
 
+  async findAll(): Promise<Author[]> {
+    try {
+      return await this.authorRepository.find();
+    } catch (err) {
+      return err;
+    }
+  }
+
   async create(author: Author) {
     try {
       return await this.authorRepository.save(author);
@@ -15,9 +23,9 @@ export class AuthorsService {
     }
   }
 
-  async findAll(): Promise<Author[]> {
+  async deleteOne(authorId: string) {
     try {
-      return await this.authorRepository.find();
+      return await this.authorRepository.removeById(authorId);
     } catch (err) {
       return err;
     }

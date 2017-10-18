@@ -22,4 +22,12 @@ export class CategoriesService {
       return err;
     }
   }
+
+  async deleteOne(categoryId: string) {
+    try {
+      return await this.categoryRepository.removeById(categoryId);
+    } catch (err) {
+      return err;
+    }
+  }
 }

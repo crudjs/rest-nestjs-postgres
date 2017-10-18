@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Param } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import * as slug from 'slug';
 
 import { Author } from './author.interface';
@@ -23,10 +23,14 @@ export class AuthorsController {
   @Post()
   async create( @Body() createAuthorDto: CreateAuthorDto) {
     const newEntry = Object.assign({}, createAuthorDto, {
-      id: slug(createAuthorDto.username, { lower: true }),
       id: slug(createAuthorDto.display_name, { lower: true }),
     });
     await this.authorsService.create(newEntry);
+  }
+
+  @Delete(':authorId')
+  delete( @Param('authorId') authorId) {
+    return this.authorsService.deleteOne(authorId);
   }
 
   @Get(':authorId/entries')

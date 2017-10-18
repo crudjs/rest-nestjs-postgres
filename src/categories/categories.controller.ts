@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Param } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import * as slug from 'slug';
 
 import { CreateCategoryDto } from './create-category.dto';
@@ -26,6 +26,11 @@ export class CategoriesController {
       id: slug(createCategoryDto.name, { lower: true }),
     });
     await this.categoriesService.create(newCategory);
+  }
+
+  @Delete(':categoryId')
+  delete( @Param('categoryId') categoryId) {
+    return this.categoriesService.deleteOne(categoryId);
   }
 
   @Get(':categoryId/entries')

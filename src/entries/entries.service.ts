@@ -23,6 +23,14 @@ export class EntriesService {
     }
   }
 
+  async deleteOne(entryId: string) {
+    try {
+      return await this.entryRepository.removeById(entryId);
+    } catch (err) {
+      return err;
+    }
+  }
+
   async findEntriesByCategory(categoryId: string): Promise<Entry[]> {
     try {
       return await this.entryRepository.find({ categoryId });
@@ -38,4 +46,5 @@ export class EntriesService {
       return err;
     }
   }
+
 }

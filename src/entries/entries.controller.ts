@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import * as slug from 'slug';
 
 import { CreateEntryDto } from './create-entry.dto';
@@ -23,5 +23,10 @@ export class EntriesController {
       cheers: 0,
     });
     await this.entriesService.create(newEntry);
+  }
+
+  @Delete(':entryId')
+  delete( @Param('entryId') entryId) {
+    return this.entriesService.deleteOne(entryId);
   }
 }
