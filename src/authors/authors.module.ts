@@ -14,4 +14,4 @@ import { authorProviders } from './author.providers';
   ],
 })
 
-export class EntriesModule { }
+export class AuthorsModule { }
