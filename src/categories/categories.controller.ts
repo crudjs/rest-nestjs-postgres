@@ -30,7 +30,6 @@ export class CategoriesController {
 
   @Get(':categoryId/entries')
   findEntriesByCategory( @Param('categoryId') categoryId): Promise<Entry[]> {
-    console.log(categoryId);
     return this.entriesService.findEntriesByCategory(categoryId);
   }
 }

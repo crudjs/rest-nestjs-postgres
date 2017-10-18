@@ -12,7 +12,7 @@ export class Entry {
   body: string;
 
   @Column()
-  authorId: number;
+  authorId: string;
 
   @Column()
   categoryId: string;

@@ -1,14 +1,19 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Param } from '@nestjs/common';
 import * as slug from 'slug';
 
 import { Author } from './author.interface';
 import { CreateAuthorDto } from './create-author.dto';
 import { AuthorsService } from './authors.service';
+import { EntriesService } from '../entries/entries.service';
+import { Entry } from '../entries/entry.interface';
 
 @Controller('authors')
 export class AuthorsController {
 
-  constructor(private readonly authorsService: AuthorsService) { }
+  constructor(
+    private readonly authorsService: AuthorsService,
+    private readonly entriesService: EntriesService,
+  ) { }
 
   @Get()
   async findAll(): Promise<Author[]> {
@@ -22,4 +27,10 @@ export class AuthorsController {
     });
     await this.authorsService.create(newEntry);
   }
+
+  @Get(':authorId/entries')
+  findEntriesByCategory( @Param('authorId') authorId): Promise<Entry[]> {
+    return this.entriesService.findEntriesByAuthor(authorId);
+  }
+
 }
