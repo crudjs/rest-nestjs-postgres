@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { v4 } from 'uuid';
+import * as slug from 'slug';
 
 import { CreateEntryDto } from './create-entry.dto';
 import { EntriesService } from './entries.service';
@@ -16,9 +16,9 @@ export class EntriesController {
   }
 
   @Post()
-  async create( @Body() createPostDto: CreateEntryDto) {
-    const newEntry = Object.assign({}, createPostDto, {
-      id: v4(),
+  async create( @Body() createEntryDto: CreateEntryDto) {
+    const newEntry = Object.assign({}, createEntryDto, {
+      id: slug(createEntryDto.title, { lower: true }),
       created_at: new Date(),
       cheers: 0,
     });

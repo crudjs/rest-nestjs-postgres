@@ -58,3 +58,5 @@ typings/
 .env
 
 \.vscode/
+
+\.DS_Store

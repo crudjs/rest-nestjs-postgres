@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { v4 } from 'uuid';
+import * as slug from 'slug';
 
 import { Author } from './author.interface';
 import { CreateAuthorDto } from './create-author.dto';
@@ -18,7 +18,7 @@ export class AuthorsController {
   @Post()
   async create( @Body() createAuthorDto: CreateAuthorDto) {
     const newEntry = Object.assign({}, createAuthorDto, {
-      id: v4(),
+      id: slug(createAuthorDto.username, { lower: true }),
     });
     await this.authorsService.create(newEntry);
   }

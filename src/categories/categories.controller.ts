@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post, Param } from '@nestjs/common';
-import { v4 } from 'uuid';
+import * as slug from 'slug';
 
 import { CreateCategoryDto } from './create-category.dto';
 import { CategoriesService } from './categories.service';
@@ -23,7 +23,7 @@ export class CategoriesController {
   @Post()
   async create( @Body() createCategoryDto: CreateCategoryDto) {
     const newCategory = Object.assign({}, createCategoryDto, {
-      id: v4(),
+      id: slug(createCategoryDto.name, { lower: true }),
     });
     await this.categoriesService.create(newCategory);
   }
