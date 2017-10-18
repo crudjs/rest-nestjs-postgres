@@ -1,6 +1,6 @@
-import { IsString } from 'class-validator';
+import { IsString, Length } from 'class-validator';
 
 export class CreateCategoryDto {
-  @IsString() readonly name: string;
+  @IsString() @Length(3, 64) readonly name: string;
   @IsString() readonly description: string;
 }

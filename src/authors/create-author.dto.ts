@@ -1,6 +1,6 @@
-import { IsEmail, IsString } from 'class-validator';
+import { IsEmail, IsString, Length } from 'class-validator';
 
 export class CreateAuthorDto {
-  @IsString() readonly username: string;
+  @IsString() @Length(3, 64) readonly display_name: string;
   @IsEmail() readonly email: string;
 }
