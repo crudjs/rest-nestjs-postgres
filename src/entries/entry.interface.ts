@@ -6,6 +6,5 @@ export interface Entry {
   created_at: Date;
   authorId: string;
   categoryId: string;
-  tags: string;
   cheers: number;
 }

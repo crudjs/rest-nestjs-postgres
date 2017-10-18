@@ -18,9 +18,6 @@ export class Entry {
   categoryId: number;
 
   @Column()
-  tags: number;
-
-  @Column()
   created_at: Date;
 
   @Column()

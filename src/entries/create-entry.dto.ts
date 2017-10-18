@@ -5,5 +5,4 @@ export class CreateEntryDto {
   @IsString() readonly body: string;
   @IsString() readonly authorId: string;
   @IsString() readonly categoryId: string;
-  @IsString() readonly tags: string;
 }
