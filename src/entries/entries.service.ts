@@ -6,11 +6,10 @@ import { Entry } from './entry.interface';
 @Component()
 export class EntriesService {
   constructor( @Inject('EntryRepositoryToken') private readonly entryRepository: Repository<Entry>) { }
-  private readonly posts: Entry[] = [];
 
-  async create(post: Entry) {
+  async create(entry: Entry) {
     try {
-      return await this.entryRepository.save(post);
+      return await this.entryRepository.save(entry);
     } catch (err) {
       return err;
     }

@@ -8,11 +8,11 @@ import { Entry } from './entry.interface';
 @Controller('entries')
 export class EntriesController {
 
-  constructor(private readonly postsService: EntriesService) { }
+  constructor(private readonly entriesService: EntriesService) { }
 
   @Get()
   async findAll(): Promise<Entry[]> {
-    return this.postsService.findAll();
+    return this.entriesService.findAll();
   }
 
   @Post()
@@ -22,6 +22,6 @@ export class EntriesController {
       created_at: new Date(),
       cheers: 0,
     });
-    await this.postsService.create(newEntry);
+    await this.entriesService.create(newEntry);
   }
 }
