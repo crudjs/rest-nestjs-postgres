@@ -15,7 +15,7 @@ export class Entry {
   authorId: number;
 
   @Column()
-  categoryId: number;
+  categoryId: string;
 
   @Column()
   created_at: Date;

@@ -7,6 +7,14 @@ import { Entry } from './entry.interface';
 export class EntriesService {
   constructor( @Inject('EntryRepositoryToken') private readonly entryRepository: Repository<Entry>) { }
 
+  async findAll(): Promise<Entry[]> {
+    try {
+      return await this.entryRepository.find();
+    } catch (err) {
+      return err;
+    }
+  }
+
   async create(entry: Entry) {
     try {
       return await this.entryRepository.save(entry);
@@ -15,9 +23,9 @@ export class EntriesService {
     }
   }
 
-  async findAll(): Promise<Entry[]> {
+  async findEntriesByCategory(categoryId: string): Promise<Entry[]> {
     try {
-      return await this.entryRepository.find();
+      return await this.entryRepository.find({ categoryId });
     } catch (err) {
       return err;
     }

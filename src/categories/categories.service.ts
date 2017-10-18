@@ -5,19 +5,19 @@ import { Category } from './category.interface';
 
 @Component()
 export class CategoriesService {
-  constructor( @Inject('EntryRepositoryToken') private readonly entryRepository: Repository<Category>) { }
+  constructor( @Inject('CategoryRepositoryToken') private readonly categoryRepository: Repository<Category>) { }
 
-  async create(entry: Category) {
+  async findAll(): Promise<Category[]> {
     try {
-      return await this.entryRepository.save(entry);
+      return await this.categoryRepository.find();
     } catch (err) {
       return err;
     }
   }
 
-  async findAll(): Promise<Category[]> {
+  async create(entry: Category) {
     try {
-      return await this.entryRepository.find();
+      return await this.categoryRepository.save(entry);
     } catch (err) {
       return err;
     }

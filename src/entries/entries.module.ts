@@ -12,6 +12,7 @@ import { entryProviders } from './entry.providers';
         ...entryProviders,
         EntriesService,
     ],
+    exports: [EntriesService],
 })
 
 export class EntriesModule { }
