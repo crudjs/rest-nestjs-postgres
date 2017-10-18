@@ -24,6 +24,7 @@ export class AuthorsController {
   async create( @Body() createAuthorDto: CreateAuthorDto) {
     const newEntry = Object.assign({}, createAuthorDto, {
       id: slug(createAuthorDto.username, { lower: true }),
+      id: slug(createAuthorDto.display_name, { lower: true }),
     });
     await this.authorsService.create(newEntry);
   }

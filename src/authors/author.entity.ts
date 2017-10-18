@@ -6,7 +6,7 @@ export class Author {
   id: string;
 
   @Column()
-  username: string;
+  display_name: string;
 
   @Column()
   email: string;
