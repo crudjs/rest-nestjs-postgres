@@ -4,8 +4,8 @@ export interface Entry {
   title: string;
   body: string;
   created_at: Date;
-  authorId: string;
-  categoryId: string;
-  tags: string;
+  authorId: number;
+  categoryId: number;
+  tags: number;
   cheers: number;
 }
