@@ -2,6 +2,7 @@ import { createConnection } from 'typeorm';
 
 import { Entry } from '../entries/entry.entity';
 import { Author } from '../authors/author.entity';
+import { Category } from '../categories/category.entity';
 
 export const dbProvider =
   {
@@ -15,6 +16,7 @@ export const dbProvider =
       entities: [
         Entry,
         Author,
+        Category,
       ],
       synchronize: true, // DEV only, do not use on PROD!
     }),
