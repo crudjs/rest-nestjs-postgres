@@ -1,6 +1,7 @@
 import { createConnection } from 'typeorm';
 
 import { Entry } from '../entries/entry.entity';
+import { Author } from '../authors/author.entity';
 
 export const dbProvider =
   {
@@ -13,6 +14,7 @@ export const dbProvider =
       password: process.env.DB_PW,
       entities: [
         Entry,
+        Author,
       ],
       synchronize: true, // DEV only, do not use on PROD!
     }),
