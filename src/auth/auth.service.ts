@@ -17,8 +17,6 @@ export class AuthService {
   async validateUser(signedUser): Promise<boolean> {
     // put some validation logic here
     // for example query user by id / email / username
-    console.log('user');
-    console.log(signedUser);
     if (signedUser.email === 'thisis@example.com') {
       return true;
     }
