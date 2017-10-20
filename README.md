@@ -1,6 +1,8 @@
 <img src="https://raw.githubusercontent.com/crudjs/rest-nestjs-postgres/master/resources/readme-header.jpg" width="100%" max-width="720px">
 
 # CrudJS + Nest.js + Postgres + TypeORM
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)]()
+
 The CrudJS project implemented as a REST API, using Nest.js and Postgres.
 
 ## What's this CrudJS thing?
