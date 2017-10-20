@@ -10,6 +10,13 @@ Glad that you asked. CrudJS intends to be a resource for comparing between diffe
 
 You can learn more about the project at [our parent repository](https://github.com/crudjs/crudjs).
 
+## Trying out the API
+### On your local machine
+You'll need [Docker](https://www.docker.com/) for that. Once you've got it installed on your machine, just clone the repo and run the `docker-compose up --build` command. The API will be listening for your requests at `http://localhost`.
+
+### On the cloud
+We're still working on a deployment strategy that works for us. Stay tuned!
+
 ## What's the stack used in this project?
 - **[Nest.js](https://nestjs.com/)** is a [TypeScript](https://www.typescriptlang.org/)-based Node.js API framework. It looks like if Angular and Express got physical. It's pretty knew and a bit rough around the edges, but [Kamil Myśliwiec](https://github.com/kamilmysliwiec) is doing an awesome job maintaining it.
 - **[Postgres](https://www.postgresql.org/)** is a very well know Open Source relational database.
